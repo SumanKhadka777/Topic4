@@ -2,6 +2,7 @@ package com.suman.topic4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -56,7 +57,10 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String country = parent.getItemAtPosition(position).toString();
                 String capital = countryMap.get(country);
-                Toast.makeText(MainActivity.this, "Capital of "+ country+"is:" + capital, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, "Capital of "+ country+"is:" + capital, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this,CapitalActivity.class);
+                intent.putExtra("Capital",capital);
+                startActivity(intent);
             }
         });
     }
